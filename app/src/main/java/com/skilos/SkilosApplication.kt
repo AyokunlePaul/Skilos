@@ -1,0 +1,14 @@
+package com.skilos
+
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
+
+@HiltAndroidApp
+class SkilosApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        Timber.plant(if (BuildConfig.DEBUG) Timber.DebugTree() else Timber.asTree())
+    }
+}
