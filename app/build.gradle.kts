@@ -5,6 +5,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -26,6 +27,7 @@ android {
             }
         }
         buildConfigField("String", "BASE_URL", getProperty("BASE_URL"))
+        lintOptions { isAbortOnError = false }
     }
 
     compileOptions {
@@ -81,6 +83,7 @@ dependencies {
     kapt(Dependencies.Hilt.ANDROID_X_COMPILER)
     // Utils
     implementation(Dependencies.Util.TIMBER)
+    implementation(Dependencies.Util.COIL)
     // Remote
     implementation(Dependencies.Network.OKHTTP)
     implementation(Dependencies.Network.RETROFIT)

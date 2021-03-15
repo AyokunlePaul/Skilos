@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_activity_main"
+    app:startDestination="@id/fragment_dog_breeds">
+
+    <fragment
+        android:id="@+id/fragment_dog_breeds"
+        android:name="com.skilos.presentation.breeds.DogBreedFragment"
+        android:label="Dog Breeds"
+        tools:layout="@layout/fragment_dog_breed">
+
+        <action
+            android:id="@+id/action_dog_breeds_to_dog_breed_detail"
+            app:destination="@id/fragment_breed_detail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_breed_detail"
+        android:name="com.skilos.presentation.breeddetail.DogBreedDetailFragment"
+        tools:layout="@layout/fragment_dog_breed">
+
+        <argument
+            android:name="dog_detail"
+            app:argType="com.skilos.models.DogDetail" />
+
+    </fragment>
+
+</navigation>
