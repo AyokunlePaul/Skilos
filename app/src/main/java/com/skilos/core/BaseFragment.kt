@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
@@ -24,10 +23,6 @@ abstract class BaseFragment<V> : Fragment() where V : ViewBinding {
     ): View? {
         _binding = getLayoutBinding(container)
         return _binding?.root
-    }
-
-    protected fun navigate(@IdRes id: Int) {
-        findNavController().navigate(id)
     }
 
     protected fun navigate(direction: NavDirections) {

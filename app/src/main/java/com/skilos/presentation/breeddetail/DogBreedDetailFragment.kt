@@ -1,25 +1,29 @@
 package com.skilos.presentation.breeddetail
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.skilos.adapters.DogBreedDetailAdapter
 import com.skilos.core.BaseFragment
 import com.skilos.databinding.FragmentBreedDetailBinding
+import com.skilos.models.DogDetail
 import com.skilos.utils.RecyclerInsetsDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import java.util.*
 
 @AndroidEntryPoint
 class DogBreedDetailFragment : BaseFragment<FragmentBreedDetailBinding>() {
 
     private val viewModel by viewModels<DogBreedDetailFragmentViewModel>()
-    private val args by navArgs<DogBreedDetailFragmentArgs>()
-    private val detailAdapter = DogBreedDetailAdapter()
+    private val args by lazy {
+        requireArguments().getParcelable<DogDetail>(DOG_DETAIL) as DogDetail
+    }
+    private val detailAdapter by lazy { DogBreedDetailAdapter() }
 
     override fun getLayoutBinding(container: ViewGroup?): FragmentBreedDetailBinding {
         return FragmentBreedDetailBinding.inflate(layoutInflater, container, false)
@@ -27,17 +31,17 @@ class DogBreedDetailFragment : BaseFragment<FragmentBreedDetailBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         with(binding) {
-            val detail = args.dogDetail
-            tvBreedName.text = if (detail.subBreed.isEmpty()) detail.breed else detail.subBreed
+            val title = if (args.subBreed.isEmpty()) args.breed else args.subBreed
+            tvBreedName.text = title.capitalize(Locale.getDefault())
             rvDogImages.apply {
                 adapter = detailAdapter
-                layoutManager = object : GridLayoutManager(requireContext(), 3) {
+                layoutManager = object : GridLayoutManager(requireContext(), 2) {
                     override fun supportsPredictiveItemAnimations(): Boolean = false
                 }
                 if (itemDecorationCount == 0) addItemDecoration(
                     RecyclerInsetsDecoration(
-                        10,
-                        10
+                        20,
+                        20
                     )
                 )
             }
@@ -56,7 +60,20 @@ class DogBreedDetailFragment : BaseFragment<FragmentBreedDetailBinding>() {
                     }
                 }
             }
-            getImages(args.dogDetail)
+            getImages(args)
+        }
+    }
+
+    companion object {
+
+        private const val DOG_DETAIL = "dog_detail"
+
+        @JvmStatic
+        fun <T> new(data: T): DogBreedDetailFragment where T : Parcelable {
+            val bundle = Bundle().apply {
+                putParcelable(DOG_DETAIL, data)
+            }
+            return DogBreedDetailFragment().apply { arguments = bundle }
         }
     }
 }
