@@ -11,6 +11,7 @@ buildscript {
         jcenter()
         maven("https://plugins.gradle.org/m2/")
         maven("https://jitpack.io")
+        mavenCentral()
     }
     dependencies {
         classpath(Dependencies.GRADLE)
@@ -32,6 +33,7 @@ allprojects {
             url = uri("https://jitpack.io")
         }
         maven("https://jitpack.io")
+        mavenCentral()
     }
 }
 

@@ -4,6 +4,7 @@ object Dependencies {
     object Versions {
         const val ROOM = "2.2.6"
         const val NAVIGATION = "2.3.2"
+        const val KLUENT = "1.64"
 
         object Ktlint {
             const val CORE = "0.33.0"
@@ -11,10 +12,17 @@ object Dependencies {
         }
 
         object Test {
+            object Instrumentation {
+                const val CORE = "2.1.0"
+            }
+
             const val CORE = "1.2.0"
             const val JUNIT = "4.12"
             const val JUNIT_EXT = "1.1.1"
-            const val ESPRESSO = "3.2.0"
+            const val RUNNER = "1.1.0"
+            const val ROBOLECTRIC = "4.4"
+            const val MOCKK = "1.10.3-jdk8"
+            const val TURBINE = "0.3.0"
         }
 
         object AndroidX {
@@ -67,11 +75,13 @@ object Dependencies {
         const val proguardConsumerRules = "consumer-rules.pro"
     }
 
-    object Kotlin {
-        const val COROUTINE =
+    object Coroutines {
+        const val CORE =
             "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
-        const val COROUTINE_ANDROID =
+        const val ANDROID =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
+        const val TEST =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES}"
     }
 
     object Ktlint {
@@ -88,18 +98,30 @@ object Dependencies {
         const val MATERIAL = "com.google.android.material:material:${Versions.AndroidX.MATERIAL}"
         const val VIEWMODEL_KTX =
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.KTX}"
-        const val LIVEDATA_KTX =
-            "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.AndroidX.KTX}"
         const val CONSTRAINT_LAYOUT =
             "androidx.constraintlayout:constraintlayout:${Versions.AndroidX.CONSTRAINT_LAYOUT}"
-        const val VIEW_PAGER = "androidx.viewpager2:viewpager2:${Versions.AndroidX.VIEW_PAGER}"
     }
 
     object Test {
+
+        object Instrumentation {
+            const val CORE = "androidx.arch.core:core-testing:${Versions.Test.Instrumentation.CORE}"
+            const val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Test.ROBOLECTRIC}"
+        }
+
         const val CORE = "androidx.test:core:${Versions.Test.CORE}"
         const val RULES = "androidx.test:rules:${Versions.Test.CORE}"
         const val JUNIT = "junit:junit:${Versions.Test.JUNIT}"
+        const val RUNNER = "androidx.test:runner:${Versions.Test.RUNNER}"
         const val JUNIT_EXT = "androidx.test.ext:junit:${Versions.Test.JUNIT_EXT}"
+        const val MOCKK = "io.mockk:mockk:${Versions.Test.MOCKK}"
+        const val MOCKK_ANDROID = "io.mockk:mockk-android:${Versions.Test.MOCKK}"
+        const val TURBINE = "app.cash.turbine:turbine:${Versions.Test.TURBINE}"
+    }
+
+    object Kluent {
+        const val CORE = "org.amshove.kluent:kluent:${Versions.KLUENT}"
+        const val ANDROID = "org.amshove.kluent:kluent-android:${Versions.KLUENT}"
     }
 
     object Navigation {
@@ -142,10 +164,6 @@ object Dependencies {
 
     object Util {
         const val COIL = "io.coil-kt:coil:${Versions.Utils.COIL}"
-        const val PAGER_INDICATOR =
-            "com.romandanylyk:pageindicatorview:${Versions.Utils.PAGE_INDICATOR}"
         const val TIMBER = "com.jakewharton.timber:timber:${Versions.Utils.TIMBER}"
-        const val ALERTER = "com.tapadoo.android:alerter:${Versions.Utils.ALERTER}"
-        const val SPINKIT = "com.github.ybq:Android-SpinKit:${Versions.Utils.SPINKIT}"
     }
 }
