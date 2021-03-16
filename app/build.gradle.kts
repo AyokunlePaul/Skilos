@@ -100,14 +100,6 @@ dependencies {
     testImplementation(Dependencies.Test.TURBINE)
     testImplementation(Dependencies.Test.RUNNER)
     testImplementation(Dependencies.Coroutines.TEST)
-    // Android test
-    androidTestImplementation(Dependencies.Test.MOCKK_ANDROID)
-    androidTestImplementation(Dependencies.Test.TURBINE)
-    androidTestImplementation(Dependencies.Kluent.ANDROID)
-    androidTestImplementation(Dependencies.Test.Instrumentation.CORE)
-    androidTestImplementation(Dependencies.Test.Instrumentation.ROBOLECTRIC)
-    androidTestImplementation(Dependencies.Test.RUNNER)
-    androidTestImplementation(Dependencies.Test.JUNIT_EXT)
 }
 
 fun getProperty(key: String): String {
