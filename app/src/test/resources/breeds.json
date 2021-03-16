@@ -1,0 +1,91 @@
+{
+  "message": {
+    "australian": [
+      "shepherd"
+    ],
+    "basenji": [],
+    "buhund": [
+      "norwegian"
+    ],
+    "bulldog": [
+      "boston",
+      "english",
+      "french"
+    ],
+    "coonhound": [],
+    "corgi": [
+      "cardigan"
+    ],
+    "cotondetulear": [],
+    "dachshund": [],
+    "dalmatian": [],
+    "dane": [
+      "great"
+    ],
+    "deerhound": [
+      "scottish"
+    ],
+    "entlebucher": [],
+    "eskimo": [],
+    "finnish": [
+      "lapphund"
+    ],
+    "frise": [
+      "bichon"
+    ],
+    "pitbull": [],
+    "pointer": [
+      "german",
+      "germanlonghair"
+    ],
+    "pomeranian": [],
+    "poodle": [
+      "miniature",
+      "standard",
+      "toy"
+    ],
+    "retriever": [
+      "chesapeake",
+      "curly",
+      "flatcoated",
+      "golden"
+    ],
+    "ridgeback": [
+      "rhodesian"
+    ],
+    "setter": [
+      "english",
+      "gordon",
+      "irish"
+    ],
+    "sheepdog": [
+      "english",
+      "shetland"
+    ],
+    "shiba": [],
+    "shihtzu": [],
+    "spaniel": [
+      "blenheim",
+      "brittany",
+      "cocker",
+      "irish",
+      "japanese",
+      "sussex",
+      "welsh"
+    ],
+    "springer": [
+      "english"
+    ],
+    "stbernard": [],
+    "terrier": [
+      "american",
+      "australian",
+      "bedlington",
+      "border",
+      "dandie",
+      "fox",
+      "irish"
+    ]
+  },
+  "status": "success"
+}

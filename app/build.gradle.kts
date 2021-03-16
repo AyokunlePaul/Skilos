@@ -5,6 +5,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -26,6 +27,7 @@ android {
             }
         }
         buildConfigField("String", "BASE_URL", getProperty("BASE_URL"))
+        lintOptions { isAbortOnError = false }
     }
 
     compileOptions {
@@ -55,8 +57,8 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     // Coroutines
-    implementation(Dependencies.Kotlin.COROUTINE)
-    implementation(Dependencies.Kotlin.COROUTINE_ANDROID)
+    implementation(Dependencies.Coroutines.CORE)
+    implementation(Dependencies.Coroutines.ANDROID)
     // AndroidX
     implementation(Dependencies.AndroidX.APP_COMPAT)
     implementation(Dependencies.AndroidX.CORE_KTX)
@@ -81,16 +83,23 @@ dependencies {
     kapt(Dependencies.Hilt.ANDROID_X_COMPILER)
     // Utils
     implementation(Dependencies.Util.TIMBER)
+    implementation(Dependencies.Util.COIL)
     // Remote
     implementation(Dependencies.Network.OKHTTP)
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
     implementation(Dependencies.Network.LOGGING_INTERCEPTOR)
     testImplementation(Dependencies.Network.MOCK_WEB_SERVER)
-    // Local
-    implementation(Dependencies.Room.RUNTIME)
-    implementation(Dependencies.Room.KTX)
-    kapt(Dependencies.Room.COMPILER)
+    // Test
+    testImplementation(Dependencies.Test.JUNIT)
+    testImplementation(Dependencies.Test.JUNIT_EXT)
+    testImplementation(Dependencies.Test.RULES)
+    testImplementation(Dependencies.Test.CORE)
+    testImplementation(Dependencies.Test.MOCKK)
+    testImplementation(Dependencies.Kluent.CORE)
+    testImplementation(Dependencies.Test.TURBINE)
+    testImplementation(Dependencies.Test.RUNNER)
+    testImplementation(Dependencies.Coroutines.TEST)
 }
 
 fun getProperty(key: String): String {

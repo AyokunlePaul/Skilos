@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skilos">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".SkilosApplication"
         android:allowBackup="true"
@@ -9,6 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Skilos" />
+        android:theme="@style/Theme.Skilos">
+        <activity android:name=".presentation.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
 </manifest>
